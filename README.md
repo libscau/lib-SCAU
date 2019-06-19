@@ -1,5 +1,5 @@
 # lib-SCAU
-A Humble Repository For South China Agricultural University （贵校课程资料民间整理
+A Humble Repository For South China Agricultural University （贵校课程资料民间整理）
 
 #本创意源自lib-pku下的libpku repository，意在提供一个方便大家共享资料的空间，然而百度云盘具有下载速度缓慢，文件管理混乱，不方便多人协作上传等等问题。
 
@@ -33,7 +33,7 @@ Issue、PR、纠错、资料、选课/考试攻略，完全欢迎！
 
 来自大家的关注、维护和贡献，才是让这个攻略继续存在的动力~
 
-对于课程的评价可写在对应课程文件夹的 README.md 中。如果想上传课件（请确保无版权问题），推荐使用 PDF 格式，避免系统差。
+对于课程的评价可写在对应课程文件夹的 README.md 中。如果想上传课件（请确保无版权问题），推荐使用 PDF 格式，避免系统差异造成的读取困难。
 
 由于本项目体积很大，故推荐采用在 GitHub Web 端直接上传 的方式，具体操作如下：
 
@@ -46,13 +46,13 @@ Issue、PR、纠错、资料、选课/考试攻略，完全欢迎！
 提交 PR：Fork 本项目，然后在 GitHub 网页端点击 Upload File 上传文件，发起 PR 即可。留意一下项目的文件组织喔。
 或者也可以直接附加在 Issue 中，由维护者进行添加。
 
-或者也可以发送邮件至 marcozhang703@outlook.com ，由维护者进行添加。（请注明标题和相关信息，否则不予接受。）
+或者也可以发送邮件至 lib_scau@163.com ，由维护者进行添加。（请注明标题和相关信息，否则不予接受。）
 
-Disclaimer
+##Disclaimer
 
 这不是华南农业大学图书馆。 我们也不对项目中信息的准确性或真实性做任何承诺。
 
-如果有侵权情况，麻烦您发送必要的信息至 marcozhang703@outlook.com ，带来不便还请您谅解。
+如果有侵权情况，麻烦您发送必要的信息至 lib_scau@163.com ，带来不便还请您谅解。
 
 资料来自网络，相关权利由原作者所有，这个 repo 仅用于收集现有资料。
 
