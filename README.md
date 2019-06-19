@@ -1,5 +1,5 @@
-# lib-SCAU
-## A Humble Repository For South China Agricultural University （贵校课程资料民间整理）
+# lib-SCAU -（贵校课程资料民间整理）
+## A Humble Repository For South China Agricultural University 
 
 ### 本创意源自lib-pku下的libpku repository，意在提供一个方便大家共享资料的空间，然而百度云盘具有下载速度缓慢，文件管理混乱，不方便多人协作上传等等问题。
 
