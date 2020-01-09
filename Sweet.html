@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sweet Heart</title>
+    <style>
+        #heart{
+            width: 105px;
+            height: 90px;
+            background-color: deeppink;
+            position: relative;
+            left: 50%;
+            top: 150px;
+            margin-left: -52.5px;
+        }
+        .box{
+            width: 15px;
+            height: 15px;
+            /*border: 1px solid deeppink;*/
+            background-color: pink;
+            display: inline-block;
+            margin: 0;
+            float: left;
+            transition: background-color 100ms;
+        }
+    </style>
+</head>
+<body>
+<div id="heart">
+    <div class="box" id="box1"></div>
+    <div class="box" id="box2"></div>
+    <div class="box" id="box3"></div>
+    <div class="box" id="box4"></div>
+    <div class="box" id="box5"></div>
+    <div class="box" id="box6"></div>
+    <div class="box" id="box7"></div>
+    <div class="box" id="box8"></div>
+    <div class="box" id="box9"></div>
+    <div class="box" id="box10"></div>
+    <div class="box" id="box11"></div>
+    <div class="box" id="box12"></div>
+    <div class="box" id="box13"></div>
+    <div class="box" id="box14"></div>
+    <div class="box" id="box15"></div>
+    <div class="box" id="box16"></div>
+    <div class="box" id="box17"></div>
+    <div class="box" id="box18"></div>
+    <div class="box" id="box19"></div>
+    <div class="box" id="box20"></div>
+    <div class="box" id="box21"></div>
+    <div class="box" id="box22"></div>
+    <div class="box" id="box23"></div>
+    <div class="box" id="box24"></div>
+    <div class="box" id="box25"></div>
+    <div class="box" id="box26"></div>
+    <div class="box" id="box27"></div>
+    <div class="box" id="box28"></div>
+    <div class="box" id="box29"></div>
+    <div class="box" id="box30"></div>
+    <div class="box" id="box31"></div>
+    <div class="box" id="box32"></div>
+    <div class="box" id="box33"></div>
+    <div class="box" id="box34"></div>
+    <div class="box" id="box35"></div>
+    <div class="box" id="box36"></div>
+    <div class="box" id="box37"></div>
+    <div class="box" id="box38"></div>
+    <div class="box" id="box39"></div>
+    <div class="box" id="box40"></div>
+    <div class="box" id="box41"></div>
+    <div class="box" id="box42"></div>
+</div>
+
+<script>
+    //#F6AFCE
+    window.onload = function (ev) {
+        var blank = [1, 4, 7, 22, 28, 29, 30, 34, 35, 36, 37, 38, 40, 41, 42];
+        var pink = [];
+        var color = ['#AC1D45', '#D8195C', '#D52D75', '#EE2178', '#FF1493'];
+        var randomColor;
+        var allPink = document.getElementsByClassName('box');
+        var i;
+        for(i=1;i<=42;i++){
+            if(blank.indexOf(i) === -1){
+                pink.push(i)
+            }
+        }
+        //设置空白
+        for(i=0;i<blank.length;i++){
+            allPink[blank[i]-1].style.transition = 'background-color 0s';
+            allPink[blank[i]-1].style.backgroundColor = 'white';
+        }
+
+        setInterval(function () {
+            for(i=0;i<pink.length;i++){
+                randomColor = parseInt((Math.random() * 10) % (color.length));
+                allPink[pink[i]-1].style.backgroundColor = color[randomColor];
+            }
+        }, 100);
+
+    }
+</script>
+
+</body>
+</html>
