@@ -1,0 +1,4503 @@
+From: <Saved by UnMHT Ver.8.3.2>
+Subject: 8086 instructions
+Date: Thu, 19 Mar 2020 18:04:52 +0800
+MIME-Version: 1.0
+X-UnMHT-Save-State: Current-State
+Content-Type: multipart/related;
+	boundary="----=_Part_B0BD4A35_0CD7A533.170F240B672";
+	type="text/html"
+
+------=_Part_B0BD4A35_0CD7A533.170F240B672
+Content-Location: file:///E:/Reference/teaching/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8/%E6%96%B0%E5%BB%BA%E6%96%87fdf%E4%BB%B6%E5%A4%B9%20(2)/8086%20instructions.html#MOV
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset="gbk"
+
+<!DOCTYPE html PUBLIC "-//W3O//DTD W3 HTML 3.0//EN">
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3Dgbk">
+
+
+<title>8086 instructions</title>
+
+<meta content=3D"emu8086 reference and description" name=3D"description">
+
+<meta content=3D"emu8086, reference, description, hints" name=3D"keywords">
+
+<style></style><style type=3D"text/css"></style><base href=3D"file:///E:/Re=
+ference/teaching/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%=
+94%A8/%E6%96%B0%E5%BB%BA%E6%96%87fdf%E4%BB%B6%E5%A4%B9%20(2)/"></head>
+
+<body alink=3D"#FF0000" bgcolor=3D"#FFFFFF" link=3D"#0000FF" text=3D"#00000=
+0" vlink=3D"#007099">
+
+
+<font face=3D"Verdana" size=3D"3">
+
+<font size=3D"+2">
+<b>Complete 8086 instruction set</b>
+</font>
+
+<font size=3D"-1">
+<br>
+&#xa0;  &#xa0;  by <a href=3D"mailto:emu8086@yahoo.com">Alexander Popov</a>
+<br><br>
+</font>
+
+<!-- 114 instructions -->
+
+<hr>
+<br>
+Quick reference:<br><br>
+<font face=3D"Fixedsys">
+
+<table border=3D"0" width=3D"100%">
+<tbody><tr>
+
+<td>
+<a href=3D"#AAA">AAA</a>  <br>
+<a href=3D"#AAD">AAD</a>  <br>
+<a href=3D"#AAM">AAM</a>  <br>
+<a href=3D"#AAS">AAS</a>  <br>
+<a href=3D"#ADC">ADC</a>  <br>
+<a href=3D"#ADD">ADD</a>  <br>
+<a href=3D"#AND">AND</a>  <br>
+
+<a href=3D"#CALL">CALL</a>  <br>
+<a href=3D"#CBW">CBW</a>  <br>
+<a href=3D"#CLC">CLC</a>  <br>
+<a href=3D"#CLD">CLD</a>  <br>
+<a href=3D"#CLI">CLI</a>  <br>
+<a href=3D"#CMC">CMC</a>  <br>
+<a href=3D"#CMP">CMP</a>  <br>
+</td><td>
+<a href=3D"#CMPSB">CMPSB</a>  <br>
+<a href=3D"#CMPSW">CMPSW</a>  <br>
+<a href=3D"#CWD">CWD</a>  <br>
+<a href=3D"#DAA">DAA</a>  <br>
+<a href=3D"#DAS">DAS</a>  <br>
+<a href=3D"#DEC">DEC</a>  <br>
+<a href=3D"#DIV">DIV</a>  <br>
+
+<a href=3D"#IDIV">IDIV</a>  <br>
+<a href=3D"#IMUL">IMUL</a>  <br>
+
+<a href=3D"#IN">IN</a>  <br>
+
+<a href=3D"#INC">INC</a>  <br>
+<a href=3D"#INT">INT</a>  <br>
+<a href=3D"#INTO">INTO</a>  <br>
+<a href=3D"#IRET">IRET</a>  <br>
+<a href=3D"#JA">JA</a>  <br>
+</td><td>
+<a href=3D"#JAE">JAE</a>  <br>
+<a href=3D"#JB">JB</a>  <br>
+<a href=3D"#JBE">JBE</a>  <br>
+<a href=3D"#JC">JC</a>  <br>
+<a href=3D"#JCXZ">JCXZ</a>  <br>
+<a href=3D"#JE">JE</a>  <br>
+<a href=3D"#JG">JG</a>  <br>
+
+<a href=3D"#JGE">JGE</a>  <br>
+<a href=3D"#JL">JL</a>  <br>
+<a href=3D"#JLE">JLE</a>  <br>
+<a href=3D"#JMP">JMP</a>  <br>
+<a href=3D"#JNA">JNA</a>  <br>
+<a href=3D"#JNAE">JNAE</a>  <br>
+<a href=3D"#JNB">JNB</a>  <br>
+</td><td>
+<a href=3D"#JNBE">JNBE</a>  <br>
+<a href=3D"#JNC">JNC</a>  <br>
+<a href=3D"#JNE">JNE</a>  <br>
+<a href=3D"#JNG">JNG</a>  <br>
+<a href=3D"#JNGE">JNGE</a>  <br>
+<a href=3D"#JNL">JNL</a>  <br>
+<a href=3D"#JNLE">JNLE</a>  <br>
+
+<a href=3D"#JNO">JNO</a>  <br>
+<a href=3D"#JNP">JNP</a>  <br>
+<a href=3D"#JNS">JNS</a>  <br>
+<a href=3D"#JNZ">JNZ</a>  <br>
+<a href=3D"#JO">JO</a>  <br>
+<a href=3D"#JP">JP</a>  <br>
+<a href=3D"#JPE">JPE</a>  <br>
+</td><td>
+<a href=3D"#JPO">JPO</a>  <br>
+<a href=3D"#JS">JS</a>  <br>
+<a href=3D"#JZ">JZ</a>  <br>
+<a href=3D"#LAHF">LAHF</a>  <br>
+<a href=3D"#LDS">LDS</a>  <br>
+<a href=3D"#LEA">LEA</a>  <br>
+<a href=3D"#LES">LES</a>  <br>
+
+<a href=3D"#LODSB">LODSB</a>  <br>
+<a href=3D"#LODSW">LODSW</a>  <br>
+<a href=3D"#LOOP">LOOP</a>  <br>
+<a href=3D"#LOOPE">LOOPE</a>  <br>
+<a href=3D"#LOOPNE">LOOPNE</a>  <br>
+<a href=3D"#LOOPNZ">LOOPNZ</a>  <br>
+<a href=3D"#LOOPZ">LOOPZ</a>  <br>
+</td><td>
+<a href=3D"#MOV">MOV</a>  <br>
+<a href=3D"#MOVSB">MOVSB</a>  <br>
+<a href=3D"#MOVSW">MOVSW</a>  <br>
+<a href=3D"#MUL">MUL</a>  <br>
+<a href=3D"#NEG">NEG</a>  <br>
+<a href=3D"#NOP">NOP</a>  <br>
+<a href=3D"#OR">OR</a>  <br>
+
+<a href=3D"#OUT">OUT</a>  <br>
+
+<a href=3D"#POP">POP</a>  <br>
+<a href=3D"#POPA">POPA</a>  <br>
+<a href=3D"#POPF">POPF</a>  <br>
+<a href=3D"#PUSH">PUSH</a>  <br>
+<a href=3D"#PUSHA">PUSHA</a>  <br>
+<a href=3D"#PUSHF">PUSHF</a>  <br>
+<a href=3D"#RCL">RCL</a>  <br>
+</td><td>
+<a href=3D"#RCR">RCR</a>  <br>
+<a href=3D"#REP">REP</a>  <br>
+<a href=3D"#REPE">REPE</a>  <br>
+<a href=3D"#REPNE">REPNE</a>  <br>
+<a href=3D"#REPNZ">REPNZ</a>  <br>
+<a href=3D"#REPZ">REPZ</a>  <br>
+<a href=3D"#RET">RET</a>  <br>
+
+<a href=3D"#RETF">RETF</a>  <br>
+<a href=3D"#ROL">ROL</a>  <br>
+<a href=3D"#ROR">ROR</a>  <br>
+<a href=3D"#SAHF">SAHF</a>  <br>
+<a href=3D"#SAL">SAL</a>  <br>
+<a href=3D"#SAR">SAR</a>  <br>
+<a href=3D"#SBB">SBB</a>  <br>
+</td><td>
+<a href=3D"#SCASB">SCASB</a>  <br>
+<a href=3D"#SCASW">SCASW</a>  <br>
+<a href=3D"#SHL">SHL</a>  <br>
+<a href=3D"#SHR">SHR</a>  <br>
+<a href=3D"#STC">STC</a>  <br>
+<a href=3D"#STD">STD</a>  <br>
+<a href=3D"#STI">STI</a>  <br>
+
+<a href=3D"#STOSB">STOSB</a>  <br>
+<a href=3D"#STOSW">STOSW</a>  <br>
+<a href=3D"#SUB">SUB</a>  <br>
+<a href=3D"#TEST">TEST</a>  <br>
+<a href=3D"#XCHG">XCHG</a>  <br>
+<a href=3D"#XLATB">XLATB</a>  <br>
+<a href=3D"#XOR">XOR</a>  <br>
+</td>
+</tr>
+</tbody></table>
+
+</font>
+<br><br>
+
+<hr>
+
+
+Operand types:<br><br>
+
+<b>REG</b>: AX, BX, CX, DX, AH, AL, BL, BH, CH, CL, DH, DL, DI, SI, BP, SP.=
+<br><br>
+
+<b>SREG</b>: DS, ES, SS, and only as second operand: CS.<br><br>
+
+<b>memory</b>: [BX], [BX+SI+7], variable, etc...(see <a href=3D"http://dsea=
+rls.org/courses/C391OrgSys/IntelAL/asm_tutorial_02.html"><b>Memory Access</=
+b></a>).<br><br>
+
+<b>immediate</b>: 5, -24, 3Fh, 10001101b, etc...<br><br>
+
+<hr>
+
+<br>
+Notes:<br><br>
+<ul>
+<li>When two operands are required for an instruction they are separated by=
+ comma. For example:<br><br>
+	<font face=3D"Fixedsys">
+	REG, memory
+	</font>
+	<br><br></li>
+<li>When there are two operands, both operands must have the same size (exc=
+ept shift and rotate
+    instructions). For example:<br><br>
+    <font face=3D"Fixedsys">
+	AL, DL<br>
+	DX, AX<br>
+	<font color=3D"#005555">
+	m1 DB ?<br>
+	</font>
+	AL, m1<br>
+	<font color=3D"#005555">
+	m2 DW ?<br>
+	</font>
+	AX, m2
+	</font>
+	<br><br>
+    </li>
+	<li>Some instructions allow several operand combinations.
+	 For example:<br><br>
+	<font face=3D"Fixedsys">
+		memory, immediate<br>
+		REG, immediate<br><br>
+		memory, REG<br>
+		REG, SREG
+	</font><br><br>
+	</li>
+
+ <li>Some examples contain macros, so it is advisable to use <nobr><b>Shift=
+ + F8</b></nobr>
+ hot key to <i>Step Over</i>, for example:
+ <pre> <font face=3D"Fixedsys">
+   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 1
+   MOV BL, 2
+   PRINTN &#x27;Hello World!&#x27;   ; macro.
+   MOV CL, 3
+   PRINTN &#x27;Welcome!&#x27;       ; macro.
+   RET</font></pre>
+ </li>
+
+</ul>
+<br>
+
+<hr>
+
+<br>
+Instructions in alphabetical order:
+
+<br><br>
+
+<table border=3D"1" cellpadding=3D"10" width=3D"100%">
+
+<tbody><tr>
+<td>Instruction</td> <td>Operands</td> <td>Description
+			<a name=3D"AAA">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+AAA
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+ASCII Adjust after Addition.<br>
+Corrects result in AH and AL after addition
+when working with BCD values. <br><br> It works according to the following =
+Algorithm:
+<br><br>
+<font face=3D"Fixedsys">
+if low nibble of AL &gt; 9 or AF =3D 1 then:<br>
+<ul>
+<li>AL =3D AL + 6</li>
+<li>AH =3D AH + 1</li>
+<li>AF =3D 1</li>
+<li>CF =3D 1</li>
+</ul>
+else
+<ul>
+<li>AF =3D 0</li>
+<li>CF =3D 0</li>
+</ul>
+in both cases:<br>
+clear the high nibble of AL.
+</font>
+<br><br>Example:<pre><font face=3D"Fixedsys">MOV AX, 15   ; AH =3D 00, AL =
+=3D 0Fh
+AAA          ; AH =3D 01, AL =3D 05
+RET</font></pre>
+			<a name=3D"AAD">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+AAD
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+ASCII Adjust before Division.<br>
+Prepares two BCD values for division. <br><br>Algorithm:
+<br><br>
+<font face=3D"Fixedsys">
+<ul>
+<li>AL =3D (AH * 10) + AL</li>
+<li>AH =3D 0</li>
+</ul>
+</font>
+<br>Example:<pre><font face=3D"Fixedsys">MOV AX, 0105h   ; AH =3D 01, AL =
+=3D 05
+AAD             ; AH =3D 00, AL =3D 0Fh (15)
+RET</font></pre>
+			<a name=3D"AAM">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+AAM
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+ASCII Adjust after Multiplication.<br>
+Corrects the result of multiplication of two BCD values. <br><br>Algorithm:
+<br><br>
+<font face=3D"Fixedsys">
+<ul>
+<li>AH =3D AL / 10</li>
+<li>AL =3D remainder</li>
+</ul>
+</font>
+<br>Example:<pre><font face=3D"Fixedsys">MOV AL, 15   ; AL =3D 0Fh
+AAM          ; AH =3D 01, AL =3D 05
+RET</font></pre>
+			<a name=3D"AAS">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+AAS
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+ASCII Adjust after Subtraction.<br>
+Corrects result in AH and AL after subtraction
+when working with BCD values. <br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+if low nibble of AL &gt; 9 or AF =3D 1 then:<br>
+<ul>
+<li>AL =3D AL - 6</li>
+<li>AH =3D AH - 1</li>
+<li>AF =3D 1</li>
+<li>CF =3D 1</li>
+</ul>
+else
+<ul>
+<li>AF =3D 0</li>
+<li>CF =3D 0</li>
+</ul>
+in both cases:<br>
+clear the high nibble of AL.
+</font>
+<br><br>Example:<pre><font face=3D"Fixedsys">MOV AX, 02FFh  ; AH =3D 02, AL=
+ =3D 0FFh
+AAS            ; AH =3D 01, AL =3D 09
+RET</font></pre>
+			<a name=3D"ADC">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+ADC
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>
+	REG, memory<br>
+	memory, REG<br>
+	REG, REG<br>
+	memory, immediate<br>
+	REG, immediate
+	</nobr>
+</font>
+</td>
+<td>
+
+Add with Carry.<br>
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+operand1 =3D operand1 + operand2 + CF
+</font>
+<br><br>Example:<pre><font face=3D"Fixedsys">STC        ; set CF =3D 1
+MOV AL, 5  ; AL =3D 5
+ADC AL, 1  ; AL =3D 7
+RET</font></pre>
+			<a name=3D"ADD">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+ADD
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>
+	REG, memory<br>
+	memory, REG<br>
+	REG, REG<br>
+	memory, immediate<br>
+	REG, immediate
+	</nobr>
+</font>
+</td>
+<td>
+
+Add.<br>
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+operand1 =3D operand1 + operand2
+</font>
+<br><br>Example:<pre><font face=3D"Fixedsys">MOV AL, 5   ; AL =3D 5
+ADD AL, -3  ; AL =3D 2
+RET</font></pre>
+			<a name=3D"AND">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+AND
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>
+	REG, memory<br>
+	memory, REG<br>
+	REG, REG<br>
+	memory, immediate<br>
+	REG, immediate
+	</nobr>
+</font>
+</td>
+<td>
+
+Logical AND between all bits of two operands. Result is stored in operand1.=
+<br><br>
+These rules apply:<br><br>
+<font face=3D"Fixedsys">
+1 AND 1 =3D 1<br>
+1 AND 0 =3D 0<br>
+0 AND 1 =3D 0<br>
+0 AND 0 =3D 0<br>
+</font>
+<br><br>Example:<pre><font face=3D"Fixedsys">MOV AL, &#x27;a&#x27;        ;=
+ AL =3D 01100001b
+AND AL, 11011111b  ; AL =3D 01000001b  (&#x27;A&#x27;)
+RET</font></pre>
+			<a name=3D"CALL">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+CALL
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>
+	procedure name<br>
+	label<br>
+	4-byte address<br>
+	</nobr>
+</font>
+</td>
+<td>
+
+Transfers control to procedure, return address is (IP) is pushed to
+stack. <i>4-byte address</i> may be entered in this form:
+<font face=3D"Fixedsys">1234h:5678h</font>, first value is a segment second
+value is an offset (this is a far call, so CS is also pushed to stack).<br>
+<br><br>Example:<pre><font face=3D"Fixedsys">ORG 100h  ; for COM file.
+
+CALL p1
+
+ADD AX, 1
+
+RET         ; return to OS.
+
+p1 PROC     ; procedure declaration.
+    MOV AX, 1234h
+    RET     ; return to caller.
+p1 ENDP</font></pre>
+			<a name=3D"CBW">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+CBW
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Convert byte into word. <br><br>Algorithm:
+<br><br>
+<font face=3D"Fixedsys">
+if high bit of AL =3D 1 then:
+<ul>
+<li>AH =3D 255 (0FFh)</li>
+</ul>
+<br>
+else
+<ul>
+<li>AH =3D 0</li>
+</ul>
+</font>
+<br>Example:<pre><font face=3D"Fixedsys">MOV AX, 0   ; AH =3D 0, AL =3D 0
+MOV AL, -5  ; AX =3D 000FBh (251)
+CBW         ; AX =3D 0FFFBh (-5)
+RET</font></pre>
+			<a name=3D"CLC">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+CLC
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Clear Carry flag. <br><br>Algorithm:
+<br><br>
+<font face=3D"Fixedsys">
+CF =3D 0
+</font>
+			<a name=3D"CLD">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+CLD
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Clear Direction flag. SI and DI will be incremented by chain
+instructions: CMPSB, CMPSW, LODSB, LODSW, MOVSB, MOVSW, STOSB, STOSW. <br><=
+br>Algorithm:
+<br><br>
+<font face=3D"Fixedsys">
+DF =3D 0
+</font>
+			<a name=3D"CLI">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+CLI
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Clear Interrupt enable flag. This disables hardware interrupts. <br><br>Alg=
+orithm:
+<br><br>
+<font face=3D"Fixedsys">
+IF =3D 0
+</font>
+			<a name=3D"CMC">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+CMC
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Complement Carry flag. Inverts value of CF. <br><br>Algorithm:
+<br><br>
+<font face=3D"Fixedsys">
+if CF =3D 1 then CF =3D 0<br>
+if CF =3D 0 then CF =3D 1<br>
+</font>
+			<a name=3D"CMP">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+CMP
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>
+	REG, memory<br>
+	memory, REG<br>
+	REG, REG<br>
+	memory, immediate<br>
+	REG, immediate
+	</nobr>
+</font>
+</td>
+<td>
+
+Compare.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+operand1 - operand2
+<br><br>
+result is not stored anywhere, flags are set (OF, SF, ZF, AF, PF, CF) accor=
+ding
+to result.
+</font>
+<br><br>Example:<pre><font face=3D"Fixedsys">MOV AL, 5
+MOV BL, 5
+CMP AL, BL  ; AL =3D 5, ZF =3D 1 (so equal!)
+RET</font></pre>
+			<a name=3D"CMPSB">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+CMPSB
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Compare bytes: <nobr>ES:[DI] from DS:[SI].</nobr> <br><br>Algorithm:
+<br><br>
+<font face=3D"Fixedsys">
+<ul>
+<li>DS:[SI] - ES:[DI]<br></li>
+<li>set flags according to result:<br> OF, SF, ZF, AF, PF, CF<br></li>
+<li>if DF =3D 0 then
+	<ul>
+	<li>SI =3D SI + 1</li>
+	<li>DI =3D DI + 1</li>
+	</ul>
+	else
+	<ul>
+	<li>SI =3D SI - 1</li>
+	<li>DI =3D DI - 1</li>
+	</ul>
+</li>
+</ul>
+</font>
+Example:<br>
+see <b><a href=3D"http://dsearls.org/courses/C391OrgSys/Samples/cmpsb.asm">=
+cmpsb.asm</a></b> in Samples.
+			<a name=3D"CMPSW">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+CMPSW
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Compare words: <nobr>ES:[DI] from DS:[SI].</nobr> <br><br>Algorithm:
+<br><br>
+<font face=3D"Fixedsys">
+<ul>
+<li>DS:[SI] - ES:[DI]<br></li>
+<li>set flags according to result:<br> OF, SF, ZF, AF, PF, CF<br></li>
+<li>if DF =3D 0 then
+	<ul>
+	<li>SI =3D SI + 2</li>
+	<li>DI =3D DI + 2</li>
+	</ul>
+	else
+	<ul>
+	<li>SI =3D SI - 2</li>
+	<li>DI =3D DI - 2</li>
+	</ul>
+</li>
+</ul>
+</font>
+Example:<br>
+see <b><a href=3D"http://dsearls.org/courses/C391OrgSys/Samples/cmpsw.asm">=
+cmpsw.asm</a></b> in Samples.
+			<a name=3D"CWD">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+CWD
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Convert Word to Double word. <br><br>Algorithm:
+<br><br>
+<font face=3D"Fixedsys">
+if high bit of AX =3D 1 then:
+<ul>
+<li>DX =3D 65535 (0FFFFh)</li>
+</ul>
+<br>
+else
+<ul>
+<li>DX =3D 0</li>
+</ul>
+</font>
+<br>Example:<pre><font face=3D"Fixedsys">MOV DX, 0   ; DX =3D 0
+MOV AX, 0   ; AX =3D 0
+MOV AX, -5  ; DX AX =3D 00000h:0FFFBh
+CWD         ; DX AX =3D 0FFFFh:0FFFBh
+RET</font></pre>
+			<a name=3D"DAA">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+DAA
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Decimal adjust After Addition.<br>
+Corrects the result of addition of two packed BCD values. <br><br>Algorithm:
+<br><br>
+<font face=3D"Fixedsys">
+if low nibble of AL &gt; 9 or AF =3D 1 then:<br>
+<ul>
+<li>AL =3D AL + 6</li>
+<li>AF =3D 1</li>
+</ul>
+if AL &gt; 9Fh or CF =3D 1 then:
+<ul>
+<li>AL =3D AL + 60h</li>
+<li>CF =3D 1</li>
+</ul>
+</font>
+<br>Example:<pre><font face=3D"Fixedsys">MOV AL, 0Fh  ; AL =3D 0Fh (15)
+DAA          ; AL =3D 15h
+RET</font></pre>
+			<a name=3D"DAS">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+DAS
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Decimal adjust After Subtraction.<br>
+Corrects the result of subtraction of two packed BCD values. <br><br>Algori=
+thm:
+<br><br>
+<font face=3D"Fixedsys">
+if low nibble of AL &gt; 9 or AF =3D 1 then:<br>
+<ul>
+<li>AL =3D AL - 6</li>
+<li>AF =3D 1</li>
+</ul>
+if AL &gt; 9Fh or CF =3D 1 then:
+<ul>
+<li>AL =3D AL - 60h</li>
+<li>CF =3D 1</li>
+</ul>
+</font>
+<br>Example:<pre><font face=3D"Fixedsys">MOV AL, 0FFh  ; AL =3D 0FFh (-1)
+DAS           ; AL =3D 99h, CF =3D 1
+RET</font></pre>
+			<a name=3D"DEC">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+DEC
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>
+	REG<br>
+	memory<br>
+	</nobr>
+</font>
+</td>
+<td>
+
+Decrement.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+operand =3D operand - 1
+<br><br>
+</font>
+<br>Example:<pre><font face=3D"Fixedsys">MOV AL, 255  ; AL =3D 0FFh (255 or=
+ -1)
+DEC AL       ; AL =3D 0FEh (254 or -2)
+RET</font></pre>
+			<a name=3D"DIV">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+DIV
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>
+	REG<br>
+	memory<br>
+	</nobr>
+</font>
+</td>
+<td>
+
+Unsigned divide.
+<br><br>Algorithm:<br><br>
+ <blockquote>
+	 when operand is a <b>byte</b>:<br>
+	 <font face=3D"Fixedsys">AL =3D AX / operand<br>
+	 AH =3D remainder (modulus)
+	 </font>
+ </blockquote>
+
+ <blockquote>
+	when operand is a <b>word</b>:<br>
+	<font face=3D"Fixedsys">AX =3D (DX AX) / operand<br>
+	DX =3D remainder (modulus)
+	</font>
+ </blockquote>
+ Example:<pre><font face=3D"Fixedsys">MOV AX, 203   ; AX =3D 00CBh
+MOV BL, 4
+DIV BL        ; AL =3D 50 (32h), AH =3D 3
+RET</font></pre>
+ 			<a name=3D"IDIV">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+IDIV
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>
+	REG<br>
+	memory<br>
+	</nobr>
+</font>
+</td>
+<td>
+
+Signed divide.
+<br><br>Algorithm:<br><br>
+ <blockquote>
+	 when operand is a <b>byte</b>:<br>
+	 <font face=3D"Fixedsys">AL =3D AX / operand<br>
+	 AH =3D remainder (modulus)
+	 </font>
+ </blockquote>
+
+ <blockquote>
+	when operand is a <b>word</b>:<br>
+	<font face=3D"Fixedsys">AX =3D (DX AX) / operand<br>
+	DX =3D remainder (modulus)
+	</font>
+ </blockquote>
+ Example:<pre><font face=3D"Fixedsys">MOV AX, -203 ; AX =3D 0FF35h
+MOV BL, 4
+IDIV BL      ; AL =3D -50 (0CEh), AH =3D -3 (0FDh)
+RET</font></pre>
+ 			<a name=3D"IMUL">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+IMUL
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>
+	REG<br>
+	memory<br>
+	</nobr>
+</font>
+</td>
+<td>
+
+Signed multiply.
+<br><br>Algorithm:<br><br>
+ <blockquote>
+	 when operand is a <b>byte</b>:<br>
+	 <font face=3D"Fixedsys">AX =3D AL * operand</font>.
+ </blockquote>
+
+ <blockquote>
+	when operand is a <b>word</b>:<br>
+	<font face=3D"Fixedsys">(DX AX) =3D AX * operand</font>.
+ </blockquote>
+  Example:<pre><font face=3D"Fixedsys">MOV AL, -2
+MOV BL, -4
+IMUL BL      ; AX =3D 8
+RET</font></pre>
+ 			<a name=3D"IN">&#xa0;</a>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+IN
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>
+	AL, im.byte<br>
+	AL, DX<br>
+	AX, im.byte<br>
+	AX, DX
+	</nobr>
+</font>
+</td>
+<td>
+
+Input from port into <b>AL</b> or <b>AX</b>.<br>
+Second operand is a port number. If required to access
+port number over 255 - <b>DX</b> register should be used.
+<br>Example:<pre><font face=3D"Fixedsys">IN AX, 4  ; get status of traffic =
+lights.
+IN AL, 7  ; get status of stepper-motor.
+</font></pre>
+ 			<a name=3D"INC">&#xa0;</a>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+INC
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>
+	REG<br>
+	memory<br>
+	</nobr>
+</font>
+</td>
+<td>
+
+Increment.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+operand =3D operand + 1
+<br>
+</font>
+<br>Example:<pre><font face=3D"Fixedsys">MOV AL, 4
+INC AL       ; AL =3D 5
+RET</font></pre>
+			<a name=3D"INT">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+INT
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>immediate byte</nobr>
+</font>
+</td>
+<td>
+
+Interrupt numbered by immediate byte (0..255).
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	Push to stack:
+	<ul>
+	<li>flags register</li>
+	<li>CS</li>
+	<li>IP</li>
+	</ul>
+
+	<li>IF =3D 0</li>
+
+	<li>Transfer control to interrupt procedure</li>
+</ul>
+</font>
+<br>Example:<pre><font face=3D"Fixedsys">MOV AH, 0Eh  ; teletype.
+MOV AL, &#x27;A&#x27;
+INT 10h      ; BIOS interrupt.
+RET</font></pre>
+			<a name=3D"INTO">&#xa0;</a>
+</td>
+</tr>
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+INTO
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Interrupt 4 if Overflow flag is 1.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+if OF =3D 1 then INT 4
+<br>
+</font>
+<br>Example:<pre><font face=3D"Fixedsys">; -5 - 127 =3D -132 (not in -128..=
+127)
+; the result of SUB is wrong (124),
+; so OF =3D 1 is set:
+MOV AL, -5
+SUB AL, 127   ; AL =3D 7Ch (124)
+INTO          ; process error.
+RET</font></pre>
+			<a name=3D"IRET">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+IRET
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Interrupt Return.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	Pop from stack:
+	<ul>
+	<li>IP</li>
+	<li>CS</li>
+	<li>flags register</li>
+	</ul>
+</ul>
+</font>
+			<a name=3D"JA">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JA
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if first operand is Above second operand (as set by CMP instruct=
+ion).
+Unsigned.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if (CF =3D 0) and (ZF =3D 0) then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 250
+   CMP AL, 5
+   JA label1
+   PRINT &#x27;AL is not above 5&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;AL is above 5&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JAE">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JAE
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if first operand is Above or Equal to second operand (as set by =
+CMP instruction).
+Unsigned.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if CF =3D 0 then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 5
+   CMP AL, 5
+   JAE label1
+   PRINT &#x27;AL is not above or equal to 5&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;AL is above or equal to 5&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JB">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JB
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if first operand is Below second operand (as set by CMP instruct=
+ion).
+Unsigned.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if CF =3D 1 then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 1
+   CMP AL, 5
+   JB  label1
+   PRINT &#x27;AL is not below 5&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;AL is below 5&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JBE">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JBE
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if first operand is Below or Equal to second operand (as set by =
+CMP instruction).
+Unsigned.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if CF =3D 1 or ZF =3D 1 then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 5
+   CMP AL, 5
+   JBE  label1
+   PRINT &#x27;AL is not below or equal to 5&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;AL is below or equal to 5&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JC">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JC
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if Carry flag is set to 1.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if CF =3D 1 then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 255
+   ADD AL, 1
+   JC  label1
+   PRINT &#x27;no carry.&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;has carry.&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JCXZ">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JCXZ
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if CX register is 0.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if CX =3D 0 then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV CX, 0
+   JCXZ label1
+   PRINT &#x27;CX is not zero.&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;CX is zero.&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JE">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JE
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if first operand is Equal to second operand (as set by CMP instr=
+uction).
+Signed/Unsigned.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if ZF =3D 1 then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 5
+   CMP AL, 5
+   JE  label1
+   PRINT &#x27;AL is not equal to 5.&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;AL is equal to 5.&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JG">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JG
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if first operand is Greater then second operand (as set by CMP i=
+nstruction).
+Signed.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if (ZF =3D 0) and (SF =3D OF) then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 5
+   CMP AL, -5
+   JG  label1
+   PRINT &#x27;AL is not greater -5.&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;AL is greater -5.&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JGE">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JGE
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if first operand is Greater or Equal to second operand (as set b=
+y CMP instruction).
+Signed.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if SF =3D OF then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 2
+   CMP AL, -5
+   JGE  label1
+   PRINT &#x27;AL &lt; -5&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;AL &gt;=3D -5&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JL">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JL
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if first operand is Less then second operand (as set by CMP inst=
+ruction).
+Signed.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if SF &lt;&gt; OF then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, -2
+   CMP AL, 5
+   JL  label1
+   PRINT &#x27;AL &gt;=3D 5.&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;AL &lt; 5.&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JLE">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JLE
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if first operand is Less or Equal to second operand (as set by C=
+MP instruction).
+Signed.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if SF &lt;&gt; OF or ZF =3D 1 then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, -2
+   CMP AL, 5
+   JLE label1
+   PRINT &#x27;AL &gt; 5.&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;AL &lt;=3D 5.&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JMP">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JMP
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>
+	label<br>
+	4-byte address<br>
+	</nobr>
+</font>
+</td>
+<td>
+
+Unconditional Jump.
+Transfers control to another part of the program.
+<i>4-byte address</i> may be entered in this form:
+<font face=3D"Fixedsys">1234h:5678h</font>, first value is a segment second
+value is an offset.<br>
+
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	always jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 5
+   JMP label1    ; jump over 2 lines!
+   PRINT &#x27;Not Jumped!&#x27;
+   MOV AL, 0
+label1:
+   PRINT &#x27;Got Here!&#x27;
+   RET</font></pre>
+			<a name=3D"JNA">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JNA
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if first operand is Not Above second operand (as set by CMP inst=
+ruction).
+Unsigned.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if CF =3D 1 or ZF =3D 1 then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 2
+   CMP AL, 5
+   JNA label1
+   PRINT &#x27;AL is above 5.&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;AL is not above 5.&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JNAE">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JNAE
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if first operand is Not Above and Not Equal to second operand (a=
+s set by CMP instruction).
+Unsigned.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if CF =3D 1 then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 2
+   CMP AL, 5
+   JNAE label1
+   PRINT &#x27;AL &gt;=3D 5.&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;AL &lt; 5.&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JNB">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JNB
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if first operand is Not Below second operand (as set by CMP inst=
+ruction).
+Unsigned.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if CF =3D 0 then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 7
+   CMP AL, 5
+   JNB label1
+   PRINT &#x27;AL &lt; 5.&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;AL &gt;=3D 5.&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JNBE">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JNBE
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if first operand is Not Below and Not Equal to second operand (a=
+s set by CMP instruction).
+Unsigned.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if (CF =3D 0) and (ZF =3D 0) then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 7
+   CMP AL, 5
+   JNBE label1
+   PRINT &#x27;AL &lt;=3D 5.&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;AL &gt; 5.&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JNC">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JNC
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if Carry flag is set to 0.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if CF =3D 0 then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 2
+   ADD AL, 3
+   JNC  label1
+   PRINT &#x27;has carry.&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;no carry.&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JNE">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JNE
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if first operand is Not Equal to second operand (as set by CMP i=
+nstruction).
+Signed/Unsigned.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if ZF =3D 0 then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 2
+   CMP AL, 3
+   JNE  label1
+   PRINT &#x27;AL =3D 3.&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;Al &lt;&gt; 3.&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JNG">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JNG
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if first operand is Not Greater then second operand (as set by C=
+MP instruction).
+Signed.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if (ZF =3D 1) and (SF &lt;&gt; OF) then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 2
+   CMP AL, 3
+   JNG  label1
+   PRINT &#x27;AL &gt; 3.&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;Al &lt;=3D 3.&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JNGE">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JNGE
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if first operand is Not Greater and Not Equal to second operand =
+(as set by CMP instruction).
+Signed.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if SF &lt;&gt; OF then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 2
+   CMP AL, 3
+   JNGE  label1
+   PRINT &#x27;AL &gt;=3D 3.&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;Al &lt; 3.&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JNL">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JNL
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if first operand is Not Less then second operand (as set by CMP =
+instruction).
+Signed.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if SF =3D OF then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 2
+   CMP AL, -3
+   JNL label1
+   PRINT &#x27;AL &lt; -3.&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;Al &gt;=3D -3.&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JNLE">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JNLE
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if first operand is Not Less and Not Equal to second operand (as=
+ set by CMP instruction).
+Signed.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if (SF =3D OF) and (ZF =3D 0) then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 2
+   CMP AL, -3
+   JNLE label1
+   PRINT &#x27;AL &lt;=3D -3.&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;Al &gt; -3.&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JNO">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JNO
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if Not Overflow.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if OF =3D 0 then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">; -5 - 2 =3D -7 (inside -128..127)
+; the result of SUB is correct,
+; so OF =3D 0:
+
+include &#x27;emu8086.inc&#x27;
+ORG 100h
+  MOV AL, -5
+  SUB AL, 2   ; AL =3D 0F9h (-7)
+JNO  label1
+  PRINT &#x27;overflow!&#x27;
+JMP exit
+label1:
+  PRINT &#x27;no overflow.&#x27;
+exit:
+  RET</font></pre>
+			<a name=3D"JNP">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JNP
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if No Parity (odd). Only 8 low bits of result are checked.
+Set by CMP, SUB, ADD, TEST, AND, OR, XOR instructions.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if PF =3D 0 then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 00000111b   ; AL =3D 7
+   OR  AL, 0           ; just set flags.
+   JNP label1
+   PRINT &#x27;parity even.&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;parity odd.&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JNS">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JNS
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if Not Signed (if positive).
+Set by CMP, SUB, ADD, TEST, AND, OR, XOR instructions.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if SF =3D 0 then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 00000111b   ; AL =3D 7
+   OR  AL, 0           ; just set flags.
+   JNS label1
+   PRINT &#x27;signed.&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;not signed.&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JNZ">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JNZ
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if Not Zero (not equal).
+Set by CMP, SUB, ADD, TEST, AND, OR, XOR instructions.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if ZF =3D 0 then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 00000111b   ; AL =3D 7
+   OR  AL, 0           ; just set flags.
+   JNZ label1
+   PRINT &#x27;zero.&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;not zero.&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JO">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JO
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if Overflow.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if OF =3D 1 then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">; -5 - 127 =3D -132 (not in -128..127)
+; the result of SUB is wrong (124),
+; so OF =3D 1 is set:
+
+include &#x27;emu8086.inc&#x27;
+org 100h
+  MOV AL, -5
+  SUB AL, 127   ; AL =3D 7Ch (124)
+JO  label1
+  PRINT &#x27;no overflow.&#x27;
+JMP exit
+label1:
+  PRINT &#x27;overflow!&#x27;
+exit:
+  RET</font></pre>
+			<a name=3D"JP">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JP
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if Parity (even). Only 8 low bits of result are checked.
+Set by CMP, SUB, ADD, TEST, AND, OR, XOR instructions.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if PF =3D 1 then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 00000101b   ; AL =3D 5
+   OR  AL, 0           ; just set flags.
+   JP label1
+   PRINT &#x27;parity odd.&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;parity even.&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JPE">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JPE
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if Parity Even. Only 8 low bits of result are checked.
+Set by CMP, SUB, ADD, TEST, AND, OR, XOR instructions.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if PF =3D 1 then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 00000101b   ; AL =3D 5
+   OR  AL, 0           ; just set flags.
+   JPE label1
+   PRINT &#x27;parity odd.&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;parity even.&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JPO">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JPO
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if Parity Odd. Only 8 low bits of result are checked.
+Set by CMP, SUB, ADD, TEST, AND, OR, XOR instructions.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if PF =3D 0 then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 00000111b   ; AL =3D 7
+   OR  AL, 0           ; just set flags.
+   JPO label1
+   PRINT &#x27;parity even.&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;parity odd.&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JS">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JS
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if Signed (if negative).
+Set by CMP, SUB, ADD, TEST, AND, OR, XOR instructions.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if SF =3D 1 then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 10000000b   ; AL =3D -128
+   OR  AL, 0           ; just set flags.
+   JS label1
+   PRINT &#x27;not signed.&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;signed.&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"JZ">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+JZ
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Short Jump if Zero (equal).
+Set by CMP, SUB, ADD, TEST, AND, OR, XOR instructions.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	if ZF =3D 1 then jump
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AL, 5
+   CMP AL, 5
+   JZ  label1
+   PRINT &#x27;AL is not equal to 5.&#x27;
+   JMP exit
+label1:
+   PRINT &#x27;AL is equal to 5.&#x27;
+exit:
+   RET</font></pre>
+			<a name=3D"LAHF">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+LAHF
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Load AH from 8 low bits of Flags register.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	AH =3D flags register<br>
+</ul>
+<pre><font face=3D"Fixedsys">
+AH bit:   7    6   5    4   3    2   1    0
+        [SF] [ZF] [0] [AF] [0] [PF] [1] [CF]</font>
+</pre>
+bits 1, 3, 5 are reserved.
+</font>
+			<a name=3D"LDS">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+LDS
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>
+	REG, memory
+	</nobr>
+</font>
+</td>
+<td>
+
+Load memory double word into word register and DS.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+    <li>REG =3D first word</li>
+	<li>DS =3D second word</li>
+</ul>
+</font>
+<br>
+Example:
+<pre><font face=3D"Fixedsys">
+ORG 100h
+
+LDS AX, m
+
+RET
+
+m  DW  1234h
+   DW  5678h
+
+END
+</font>
+</pre>
+AX is set to 1234h, DS is set to 5678h.
+			<a name=3D"LEA">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+LEA
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>
+	REG, memory
+	</nobr>
+</font>
+</td>
+<td>
+
+Load Effective Address.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+    <li>REG =3D address of memory (offset)</li>
+</ul>
+</font>
+<br>
+Generally this instruction is replaced by MOV when assembling when possible.
+<br><br>
+Example:
+<pre><font face=3D"Fixedsys">
+ORG 100h
+
+LEA AX, m
+
+RET
+
+m  DW  1234h
+
+END
+</font>
+</pre>
+AX is set to: 0104h.<br>
+LEA instruction takes 3 bytes, RET takes 1 byte, we start
+at 100h, so the address of &#x27;m&#x27; is 104h.
+			<a name=3D"LES">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+LES
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>
+	REG, memory
+	</nobr>
+</font>
+</td>
+<td>
+
+Load memory double word into word register and ES.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+    <li>REG =3D first word</li>
+	<li>ES =3D second word</li>
+</ul>
+</font>
+<br>
+Example:
+<pre><font face=3D"Fixedsys">
+ORG 100h
+
+LES AX, m
+
+RET
+
+m  DW  1234h
+   DW  5678h
+
+END
+</font>
+</pre>
+AX is set to 1234h, ES is set to 5678h.
+			<a name=3D"LODSB">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+LODSB
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Load byte at DS:[SI] into AL. Update SI.<br><br>Algorithm:
+<br><br>
+<font face=3D"Fixedsys">
+<ul>
+<li>AL =3D DS:[SI]<br></li>
+<li>if DF =3D 0 then
+	<ul>
+	<li>SI =3D SI + 1</li>
+	</ul>
+	else
+	<ul>
+	<li>SI =3D SI - 1</li>
+	</ul>
+</li>
+</ul>
+</font>
+			<a name=3D"LODSW">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+LODSW
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Load word at DS:[SI] into AX. Update SI.<br><br>Algorithm:
+<br><br>
+<font face=3D"Fixedsys">
+<ul>
+<li>AX =3D DS:[SI]<br></li>
+<li>if DF =3D 0 then
+	<ul>
+	<li>SI =3D SI + 2</li>
+	</ul>
+	else
+	<ul>
+	<li>SI =3D SI - 2</li>
+	</ul>
+</li>
+</ul>
+</font>
+			<a name=3D"LOOP">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+LOOP
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Decrease CX, jump to label if CX not zero. <br><br>Algorithm:
+<br><br>
+<font face=3D"Fixedsys">
+<ul>
+<li>CX =3D CX - 1<br></li>
+<li>if CX &lt;&gt; 0 then
+	<ul>
+	<li>jump</li>
+	</ul>
+	else
+	<ul>
+	<li>no jump, continue</li>
+	</ul>
+</li>
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV CX, 5
+label1:
+   PRINTN &#x27;loop!&#x27;
+   LOOP label1
+   RET</font></pre>
+			<a name=3D"LOOPE">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+LOOPE
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Decrease CX, jump to label if CX not zero and Equal (ZF =3D 1). <br><br>Alg=
+orithm:
+<br><br>
+<font face=3D"Fixedsys">
+<ul>
+<li>CX =3D CX - 1<br></li>
+<li>if (CX &lt;&gt; 0) and (ZF =3D 1) then
+	<ul>
+	<li>jump</li>
+	</ul>
+	else
+	<ul>
+	<li>no jump, continue</li>
+	</ul>
+</li>
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">; Loop until result fits into AL alone,
+; or 5 times. The result will be over 255
+; on third loop (100+100+100),
+; so loop will exit.
+
+   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AX, 0
+   MOV CX, 5
+label1:
+   PUTC &#x27;*&#x27;
+   ADD AX, 100
+   CMP AH, 0
+   LOOPE label1
+   RET</font></pre>
+			<a name=3D"LOOPNE">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+LOOPNE
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Decrease CX, jump to label if CX not zero and Not Equal (ZF =3D 0). <br><br=
+>Algorithm:
+<br><br>
+<font face=3D"Fixedsys">
+<ul>
+<li>CX =3D CX - 1<br></li>
+<li>if (CX &lt;&gt; 0) and (ZF =3D 0) then
+	<ul>
+	<li>jump</li>
+	</ul>
+	else
+	<ul>
+	<li>no jump, continue</li>
+	</ul>
+</li>
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">; Loop until &#x27;7&#x27; is found,
+; or 5 times.
+
+   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV SI, 0
+   MOV CX, 5
+label1:
+   PUTC &#x27;*&#x27;
+   MOV AL, v1[SI]
+   INC SI         ; next byte (SI=3DSI+1).
+   CMP AL, 7
+   LOOPNE label1
+   RET
+   v1 db 9, 8, 7, 6, 5</font></pre>
+			<a name=3D"LOOPNZ">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+LOOPNZ
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+</td>
+<td>
+
+Decrease CX, jump to label if CX not zero and ZF =3D 0. <br><br>Algorithm:
+<br><br>
+<font face=3D"Fixedsys">
+<ul>
+<li>CX =3D CX - 1<br></li>
+<li>if (CX &lt;&gt; 0) and (ZF =3D 0) then
+	<ul>
+	<li>jump</li>
+	</ul>
+	else
+	<ul>
+	<li>no jump, continue</li>
+	</ul>
+</li>
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">; Loop until &#x27;7&#x27; is found,
+; or 5 times.
+
+   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV SI, 0
+   MOV CX, 5
+label1:
+   PUTC &#x27;*&#x27;
+   MOV AL, v1[SI]
+   INC SI         ; next byte (SI=3DSI+1).
+   CMP AL, 7
+   LOOPNZ label1
+   RET
+   v1 db 9, 8, 7, 6, 5</font></pre>
+			<a name=3D"LOOPZ">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+LOOPZ
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>label</nobr>
+</font>
+
+</td>
+<td>
+
+Decrease CX, jump to label if CX not zero and ZF =3D 1. <br><br>Algorithm:
+<br><br>
+<font face=3D"Fixedsys">
+<ul>
+<li>CX =3D CX - 1<br></li>
+<li>if (CX &lt;&gt; 0) and (ZF =3D 1) then
+	<ul>
+	<li>jump</li>
+	</ul>
+	else
+	<ul>
+	<li>no jump, continue</li>
+	</ul>
+</li>
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">; Loop until result fits into AL alone,
+; or 5 times. The result will be over 255
+; on third loop (100+100+100),
+; so loop will exit.
+
+   include &#x27;emu8086.inc&#x27;
+   ORG 100h
+   MOV AX, 0
+   MOV CX, 5
+label1:
+   PUTC &#x27;*&#x27;
+   ADD AX, 100
+   CMP AH, 0
+   LOOPZ label1
+   RET</font></pre>
+			<a name=3D"MOV">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+MOV
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>
+	REG, memory<br>
+	memory, REG<br>
+	REG, REG<br>
+	memory, immediate<br>
+	REG, immediate<br><br>
+
+	SREG, memory<br>
+	memory, SREG<br>
+	REG, SREG<br>
+	SREG, REG
+	</nobr>
+</font>
+</td>
+<td>
+
+Copy operand2 to operand1.<br><br>
+The MOV instruction <u>cannot</u>:
+<ul>
+<li>set the value of the CS and IP registers.</li>
+<li>copy value of one segment register to another segment register (should =
+copy to general register first).</li>
+<li>copy immediate value to segment register (should copy to general regist=
+er first).</li>
+</ul>
+<br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<blockquote>
+operand1 =3D operand2
+</blockquote>
+</font>
+Example:<pre><font face=3D"Fixedsys">ORG 100h
+MOV AX, 0B800h    ; set AX =3D B800h (VGA memory).
+MOV DS, AX        ; copy value of AX to DS.
+MOV CL, &#x27;A&#x27;       ; CL =3D 41h (ASCII code).
+MOV CH, 01011111b ; CL =3D color attribute.
+MOV BX, 15Eh      ; BX =3D position on screen.
+MOV [BX], CX      ; w.[0B800h:015Eh] =3D CX.
+RET               ; returns to operating system.
+</font></pre>
+			<a name=3D"MOVSB">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+MOVSB
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Copy byte at DS:[SI] to ES:[DI].
+Update SI and DI.<br><br>Algorithm:
+<br><br>
+<font face=3D"Fixedsys">
+<ul>
+<li>ES:[DI] =3D DS:[SI]<br></li>
+<li>if DF =3D 0 then
+	<ul>
+	<li>SI =3D SI + 1</li>
+	<li>DI =3D DI + 1</li>
+	</ul>
+	else
+	<ul>
+	<li>SI =3D SI - 1</li>
+	<li>DI =3D DI - 1</li>
+	</ul>
+</li>
+</ul>
+</font>
+			<a name=3D"MOVSW">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+MOVSW
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Copy byte at DS:[SI] to ES:[DI].
+Update SI and DI.<br><br>Algorithm:
+<br><br>
+<font face=3D"Fixedsys">
+<ul>
+<li>ES:[DI] =3D DS:[SI]<br></li>
+<li>if DF =3D 0 then
+	<ul>
+	<li>SI =3D SI + 2</li>
+	<li>DI =3D DI + 2</li>
+	</ul>
+	else
+	<ul>
+	<li>SI =3D SI - 2</li>
+	<li>DI =3D DI - 2</li>
+	</ul>
+</li>
+</ul>
+</font>
+			<a name=3D"MUL">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+MUL
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>
+	REG<br>
+	memory<br>
+	</nobr>
+</font>
+</td>
+<td>
+
+Unsigned multiply.
+<br><br>Algorithm:<br><br>
+ <blockquote>
+	 when operand is a <b>byte</b>:<br>
+	 <font face=3D"Fixedsys">AX =3D AL * operand</font>.
+ </blockquote>
+
+ <blockquote>
+	when operand is a <b>word</b>:<br>
+	<font face=3D"Fixedsys">(DX AX) =3D AX * operand</font>.
+ </blockquote>
+   Example:<pre><font face=3D"Fixedsys">MOV AL, 200   ; AL =3D 0C8h
+MOV BL, 4
+MUL BL        ; AX =3D 0320h (800)
+RET</font></pre>
+ 			<a name=3D"NEG">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+NEG
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>
+	REG<br>
+	memory<br>
+	</nobr>
+</font>
+</td>
+<td>
+
+Negate. Makes operand negative (two&#x27;s complement).
+<br><br>Algorithm:<br><br>
+ <font face=3D"Fixedsys">
+ <ul>
+ <li>Invert all bits of the operand</li>
+ <li>Add 1 to inverted operand</li>
+ </ul>
+ </font>
+    Example:<pre><font face=3D"Fixedsys">MOV AL, 5   ; AL =3D 05h
+NEG AL      ; AL =3D 0FBh (-5)
+NEG AL      ; AL =3D 05h (5)
+RET</font></pre>
+ 			<a name=3D"NOP">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+NOP
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+No Operation.<br><br>Algorithm:
+<br><br>
+<font face=3D"Fixedsys">
+<ul>
+<li>Do nothing<br></li>
+</ul>
+</font>
+    Example:<pre><font face=3D"Fixedsys">NOP
+NOP
+NOP
+RET</font></pre>
+			<a name=3D"OR">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+OR
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>
+	REG, memory<br>
+	memory, REG<br>
+	REG, REG<br>
+	memory, immediate<br>
+	REG, immediate
+	</nobr>
+</font>
+</td>
+<td>
+
+Logical OR between all bits of two operands.
+Result is stored in first operand.<br><br>
+These rules apply:<br><br>
+<font face=3D"Fixedsys">
+1 OR 1 =3D 1<br>
+1 OR 0 =3D 1<br>
+0 OR 1 =3D 1<br>
+0 OR 0 =3D 0<br>
+</font>
+<br><br>Example:<pre><font face=3D"Fixedsys">MOV AL, &#x27;A&#x27;       ; =
+AL =3D 01000001b
+OR AL, 00100000b  ; AL =3D 01100001b  (&#x27;a&#x27;)
+RET</font></pre>
+			<a name=3D"OUT">&#xa0;</a>
+</td>
+</tr>
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+OUT
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>
+	im.byte, AL<br>
+	im.byte, AX<br>
+	DX, AL<br>
+	DX, AX
+	</nobr>
+</font>
+</td>
+<td>
+
+Output from <b>AL</b> or <b>AX</b> to port.<br>
+First operand is a port number. If required to access
+port number over 255 - <b>DX</b> register should be used.
+
+<br><br>Example:<pre><font face=3D"Fixedsys">MOV AX, 0FFFh ; Turn on all
+OUT 4, AX     ; traffic lights.
+
+MOV AL, 100b  ; Turn on the third
+OUT 7, AL     ; magnet of the stepper-motor.</font></pre>
+ 			<a name=3D"POP">&#xa0;</a>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+POP
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>
+	REG<br>
+	SREG<br>
+	memory
+	</nobr>
+</font>
+</td>
+<td>
+
+Get 16 bit value from the stack.
+<br><br>Algorithm:<br><br>
+ <font face=3D"Fixedsys">
+ <ul>
+ <li>operand =3D SS:[SP] (top of the stack)</li>
+ <li>SP =3D SP + 2</li>
+ </ul>
+ </font>
+ <br>Example:<pre><font face=3D"Fixedsys">MOV AX, 1234h
+PUSH AX
+POP  DX     ; DX =3D 1234h
+RET</font></pre>
+ 			<a name=3D"POPA">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+POPA
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Pop all general purpose registers DI, SI, BP, SP, BX, DX, CX, AX from the s=
+tack.<br>
+SP value is ignored, it is Popped but not set to SP register).<br><br>
+Note: this instruction works only on <b>80186</b> CPU and later!
+<br><br>Algorithm:<br><br>
+ <font face=3D"Fixedsys">
+ <ul>
+ <li>POP DI</li>
+ <li>POP SI</li>
+ <li>POP BP</li>
+ <li>POP xx (SP value ignored)</li>
+ <li>POP BX</li>
+ <li>POP DX</li>
+ <li>POP CX</li>
+ <li>POP AX</li>
+ </ul>
+ </font>
+			<a name=3D"POPF">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+POPF
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Get flags register from the stack.
+<br><br>Algorithm:<br><br>
+ <font face=3D"Fixedsys">
+ <ul>
+ <li>flags =3D SS:[SP] (top of the stack)</li>
+ <li>SP =3D SP + 2</li>
+ </ul>
+ </font>
+ 			<a name=3D"PUSH">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+PUSH
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>
+	REG<br>
+	SREG<br>
+	memory<br>
+	immediate
+	</nobr>
+</font>
+</td>
+<td>
+
+Store 16 bit value in the stack.<br><br>
+
+Note: <b>PUSH immediate</b> works only on 80186 CPU and later!
+<br><br>Algorithm:<br><br>
+ <font face=3D"Fixedsys">
+ <ul>
+ <li>SP =3D SP - 2</li>
+ <li>SS:[SP] (top of the stack) =3D operand</li>
+ </ul>
+ </font>
+<br>Example:<pre><font face=3D"Fixedsys">MOV AX, 1234h
+PUSH AX
+POP  DX     ; DX =3D 1234h
+RET</font></pre>
+ 			<a name=3D"PUSHA">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+PUSHA
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Push all general purpose registers AX, CX, DX, BX, SP, BP, SI, DI in the st=
+ack.<br>
+Original value of SP register (before PUSHA) is used.<br><br>
+Note: this instruction works only on <b>80186</b> CPU and later!
+<br><br>Algorithm:<br><br>
+ <font face=3D"Fixedsys">
+ <ul>
+	<li>PUSH AX</li>
+	<li>PUSH CX</li>
+	<li>PUSH DX</li>
+	<li>PUSH BX</li>
+	<li>PUSH SP</li>
+	<li>PUSH BP</li>
+	<li>PUSH SI</li>
+	<li>PUSH DI</li>
+ </ul>
+ </font>
+			<a name=3D"PUSHF">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+PUSHF
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Store flags register in the stack.
+<br><br>Algorithm:<br><br>
+ <font face=3D"Fixedsys">
+ <ul>
+ <li>SP =3D SP - 2</li>
+ <li>SS:[SP] (top of the stack) =3D flags</li>
+ </ul>
+ </font>
+ 			<a name=3D"RCL">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+RCL
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>memory, immediate</nobr><br>
+	<nobr>REG, immediate</nobr><br><br>
+	<nobr>memory, CL</nobr><br>
+	<nobr>REG, CL</nobr>
+</font>
+</td>
+<td>
+
+Rotate operand1 left through Carry Flag. The number of rotates is set by op=
+erand2.
+<br>
+When <b>immediate</b> is greater then 1, assembler generates several
+<b>RCL xx, 1</b> instructions because 8086 has machine code only for this
+instruction (the same principle works for all other shift/rotate instructio=
+ns).
+
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	shift all bits left, the bit that goes off is set to
+	CF and previous value of CF is inserted to the right-most position.
+</ul>
+</font>
+<br>Example:<pre><font face=3D"Fixedsys">STC               ; set carry (CF=
+=3D1).
+MOV AL, 1Ch       ; AL =3D 00011100b
+RCL AL, 1         ; AL =3D 00111001b,  CF=3D0.
+RET</font></pre>
+			<a name=3D"RCR">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+RCR
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>memory, immediate</nobr><br>
+	<nobr>REG, immediate</nobr><br><br>
+	<nobr>memory, CL</nobr><br>
+	<nobr>REG, CL</nobr>
+</font>
+</td>
+<td>
+
+Rotate operand1 right through Carry Flag. The number of rotates is set by o=
+perand2.
+
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	shift all bits right, the bit that goes off is set to
+	CF and previous value of CF is inserted to the left-most position.
+</ul>
+</font>
+<br>Example:<pre><font face=3D"Fixedsys">STC               ; set carry (CF=
+=3D1).
+MOV AL, 1Ch       ; AL =3D 00011100b
+RCR AL, 1         ; AL =3D 10001110b,  CF=3D0.
+RET</font></pre>
+			<a name=3D"REP">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+REP
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>chain instruction</nobr><br>
+</font>
+</td>
+<td>
+
+Repeat following MOVSB, MOVSW, LODSB, LODSW, STOSB, STOSW instructions
+CX times.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+check_cx:<br><br>
+if CX &lt;&gt; 0 then
+<ul>
+	<li>do following <u>chain instruction</u></li>
+	<li>CX =3D CX - 1</li>
+	<li>go back to check_cx</li>
+</ul>
+else
+<ul>
+	<li>exit from REP cycle</li>
+</ul>
+</font>
+			<a name=3D"REPE">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+REPE
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>chain instruction</nobr><br>
+</font>
+</td>
+<td>
+
+Repeat following CMPSB, CMPSW, SCASB, SCASW instructions
+while ZF =3D 1 (result is Equal), maximum CX times.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+check_cx:<br><br>
+if CX &lt;&gt; 0 then
+<ul>
+	<li>do following <u>chain instruction</u></li>
+	<li>CX =3D CX - 1</li>
+	<li>if ZF =3D 1 then:
+		<ul>
+		<li>go back to check_cx</li>
+		</ul>
+	else
+		<ul>
+		<li>exit from REPE cycle</li>
+		</ul>
+	</li>
+</ul>
+else
+<ul>
+	<li>exit from REPE cycle</li>
+</ul>
+</font>
+Example:<br>
+see <b><a href=3D"http://dsearls.org/courses/C391OrgSys/Samples/cmpsb.asm">=
+cmpsb.asm</a></b> in Samples.
+			<a name=3D"REPNE">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+REPNE
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>chain instruction</nobr><br>
+</font>
+</td>
+<td>
+
+Repeat following CMPSB, CMPSW, SCASB, SCASW instructions
+while ZF =3D 0 (result is Not Equal), maximum CX times.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+check_cx:<br><br>
+if CX &lt;&gt; 0 then
+<ul>
+	<li>do following <u>chain instruction</u></li>
+	<li>CX =3D CX - 1</li>
+	<li>if ZF =3D 0 then:
+		<ul>
+		<li>go back to check_cx</li>
+		</ul>
+	else
+		<ul>
+		<li>exit from REPNE cycle</li>
+		</ul>
+	</li>
+</ul>
+else
+<ul>
+	<li>exit from REPNE cycle</li>
+</ul>
+</font>
+			<a name=3D"REPNZ">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+REPNZ
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>chain instruction</nobr><br>
+</font>
+</td>
+<td>
+
+Repeat following CMPSB, CMPSW, SCASB, SCASW instructions
+while ZF =3D 0 (result is Not Zero), maximum CX times.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+check_cx:<br><br>
+if CX &lt;&gt; 0 then
+<ul>
+	<li>do following <u>chain instruction</u></li>
+	<li>CX =3D CX - 1</li>
+	<li>if ZF =3D 0 then:
+		<ul>
+		<li>go back to check_cx</li>
+		</ul>
+	else
+		<ul>
+		<li>exit from REPNZ cycle</li>
+		</ul>
+	</li>
+</ul>
+else
+<ul>
+	<li>exit from REPNZ cycle</li>
+</ul>
+</font>
+			<a name=3D"REPZ">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+REPZ
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>chain instruction</nobr><br>
+</font>
+</td>
+<td>
+
+Repeat following CMPSB, CMPSW, SCASB, SCASW instructions
+while ZF =3D 1 (result is Zero), maximum CX times.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+check_cx:<br><br>
+if CX &lt;&gt; 0 then
+<ul>
+	<li>do following <u>chain instruction</u></li>
+	<li>CX =3D CX - 1</li>
+	<li>if ZF =3D 1 then:
+		<ul>
+		<li>go back to check_cx</li>
+		</ul>
+	else
+		<ul>
+		<li>exit from REPZ cycle</li>
+		</ul>
+	</li>
+</ul>
+else
+<ul>
+	<li>exit from REPZ cycle</li>
+</ul>
+</font>
+			<a name=3D"RET">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+RET
+</font>
+</td>
+<td>No operands<br>
+or even immediate</td>
+<td>
+
+Return from near procedure.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	<li>
+		Pop from stack:
+		<ul>
+		<li>IP</li>
+		</ul>
+	</li>
+	<li>
+	if <u>immediate</u> operand is present:
+	<nobr>SP =3D SP + operand</nobr>
+	</li>
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">ORG 100h  ; for COM file.
+
+CALL p1
+
+ADD AX, 1
+
+RET         ; return to OS.
+
+p1 PROC     ; procedure declaration.
+    MOV AX, 1234h
+    RET     ; return to caller.
+p1 ENDP</font></pre>
+			<a name=3D"RETF">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+RETF
+</font>
+</td>
+<td>No operands<br>
+or even immediate</td>
+<td>
+
+Return from Far procedure.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	<li>
+		Pop from stack:
+		<ul>
+		<li>IP</li>
+		<li>CS</li>
+		</ul>
+	</li>
+	<li>
+	if <u>immediate</u> operand is present:
+	<nobr>SP =3D SP + operand</nobr>
+	</li>
+</ul>
+</font>
+			<a name=3D"ROL">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+ROL
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>memory, immediate</nobr><br>
+	<nobr>REG, immediate</nobr><br><br>
+	<nobr>memory, CL</nobr><br>
+	<nobr>REG, CL</nobr>
+</font>
+</td>
+<td>
+
+Rotate operand1 left. The number of rotates is set by operand2.
+
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	shift all bits left, the bit that goes off is set to
+	CF and the same bit is inserted to the right-most position.
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">MOV AL, 1Ch       ; AL =3D 00011100b
+ROL AL, 1         ; AL =3D 00111000b,  CF=3D0.
+RET</font></pre>
+			<a name=3D"ROR">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+ROR
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>memory, immediate</nobr><br>
+	<nobr>REG, immediate</nobr><br><br>
+	<nobr>memory, CL</nobr><br>
+	<nobr>REG, CL</nobr>
+</font>
+</td>
+<td>
+
+Rotate operand1 right. The number of rotates is set by operand2.
+
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	shift all bits right, the bit that goes off is set to
+	CF and the same bit is inserted to the left-most position.
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">MOV AL, 1Ch       ; AL =3D 00011100b
+ROR AL, 1         ; AL =3D 00001110b,  CF=3D0.
+RET</font></pre>
+			<a name=3D"SAHF">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+SAHF
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Store AH register into low 8 bits of Flags register.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	flags register =3D AH<br>
+</ul>
+<pre><font face=3D"Fixedsys">
+AH bit:   7    6   5    4   3    2   1    0
+        [SF] [ZF] [0] [AF] [0] [PF] [1] [CF]</font>
+</pre>
+bits 1, 3, 5 are reserved.
+</font>
+			<a name=3D"SAL">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+SAL
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>memory, immediate</nobr><br>
+	<nobr>REG, immediate</nobr><br><br>
+	<nobr>memory, CL</nobr><br>
+	<nobr>REG, CL</nobr>
+</font>
+</td>
+<td>
+
+Shift Arithmetic operand1 Left. The number of shifts is set by operand2.
+
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	<li>Shift all bits left, the bit that goes off is set to CF.</li>
+	<li>Zero bit is inserted to the right-most position.</li>
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">MOV AL, 0E0h      ; AL =3D 11100000b
+SAL AL, 1         ; AL =3D 11000000b,  CF=3D1.
+RET</font></pre>
+			<a name=3D"SAR">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+SAR
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>memory, immediate</nobr><br>
+	<nobr>REG, immediate</nobr><br><br>
+	<nobr>memory, CL</nobr><br>
+	<nobr>REG, CL</nobr>
+</font>
+</td>
+<td>
+
+Shift Arithmetic operand1 Right. The number of shifts is set by operand2.
+
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	<li>Shift all bits right, the bit that goes off is set to CF.</li>
+	<li>The sign bit that is inserted to the left-most position has
+	    the same value as before shift.</li>
+</ul>
+</font>
+Example:<pre><font face=3D"Fixedsys">MOV AL, 0E0h      ; AL =3D 11100000b
+SAR AL, 1         ; AL =3D 11110000b,  CF=3D0.
+
+MOV BL, 4Ch       ; BL =3D 01001100b
+SAR BL, 1         ; BL =3D 00100110b,  CF=3D0.
+
+RET</font></pre>
+			<a name=3D"SBB">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+SBB
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>
+	REG, memory<br>
+	memory, REG<br>
+	REG, REG<br>
+	memory, immediate<br>
+	REG, immediate
+	</nobr>
+</font>
+</td>
+<td>
+
+Subtract with Borrow.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+operand1 =3D operand1 - operand2 - CF
+</font>
+			<a name=3D"SCASB">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+SCASB
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Compare bytes: <nobr>AL from ES:[DI].</nobr> <br><br>Algorithm:
+<br><br>
+<font face=3D"Fixedsys">
+<ul>
+<li>ES:[DI] - AL<br></li>
+<li>set flags according to result:<br> OF, SF, ZF, AF, PF, CF<br></li>
+<li>if DF =3D 0 then
+	<ul>
+	<li>DI =3D DI + 1</li>
+	</ul>
+	else
+	<ul>
+	<li>DI =3D DI - 1</li>
+	</ul>
+</li>
+</ul>
+</font>
+			<a name=3D"SCASW">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+SCASW
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Compare words: <nobr>AX from ES:[DI].</nobr> <br><br>Algorithm:
+<br><br>
+<font face=3D"Fixedsys">
+<ul>
+<li>ES:[DI] - AX<br></li>
+<li>set flags according to result:<br> OF, SF, ZF, AF, PF, CF<br></li>
+<li>if DF =3D 0 then
+	<ul>
+	<li>DI =3D DI + 2</li>
+	</ul>
+	else
+	<ul>
+	<li>DI =3D DI - 2</li>
+	</ul>
+</li>
+</ul>
+</font>
+			<a name=3D"SHL">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+SHL
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>memory, immediate</nobr><br>
+	<nobr>REG, immediate</nobr><br><br>
+	<nobr>memory, CL</nobr><br>
+	<nobr>REG, CL</nobr>
+</font>
+</td>
+<td>
+
+Shift operand1 Left. The number of shifts is set by operand2.
+
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	<li>Shift all bits left, the bit that goes off is set to CF.</li>
+	<li>Zero bit is inserted to the right-most position.</li>
+</ul>
+</font>
+			<a name=3D"SHR">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+SHR
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>memory, immediate</nobr><br>
+	<nobr>REG, immediate</nobr><br><br>
+	<nobr>memory, CL</nobr><br>
+	<nobr>REG, CL</nobr>
+</font>
+</td>
+<td>
+
+Shift operand1 Right. The number of shifts is set by operand2.
+
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+<ul>
+	<li>Shift all bits right, the bit that goes off is set to CF.</li>
+	<li>Zero bit is inserted to the left-most position.</li>
+</ul>
+</font>
+			<a name=3D"STC">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+STC
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Set Carry flag. <br><br>Algorithm:
+<br><br>
+<font face=3D"Fixedsys">
+CF =3D 1
+</font>
+			<a name=3D"STD">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+STD
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Set Direction flag. SI and DI will be decremented by chain
+instructions: CMPSB, CMPSW, LODSB, LODSW, MOVSB, MOVSW, STOSB, STOSW. <br><=
+br>Algorithm:
+<br><br>
+<font face=3D"Fixedsys">
+DF =3D 1
+</font>
+			<a name=3D"STI">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+STI
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Set Interrupt enable flag. This enables hardware interrupts. <br><br>Algori=
+thm:
+<br><br>
+<font face=3D"Fixedsys">
+IF =3D 1
+</font>
+			<a name=3D"STOSB">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+STOSB
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Store byte in AL into ES:[DI]. Update SI.<br><br>Algorithm:
+<br><br>
+<font face=3D"Fixedsys">
+<ul>
+<li>ES:[DI] =3D AL<br></li>
+<li>if DF =3D 0 then
+	<ul>
+	<li>DI =3D DI + 1</li>
+	</ul>
+	else
+	<ul>
+	<li>DI =3D DI - 1</li>
+	</ul>
+</li>
+</ul>
+</font>
+			<a name=3D"STOSW">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+STOSW
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Store word in AX into ES:[DI]. Update SI.<br><br>Algorithm:
+<br><br>
+<font face=3D"Fixedsys">
+<ul>
+<li>ES:[DI] =3D AX<br></li>
+<li>if DF =3D 0 then
+	<ul>
+	<li>DI =3D DI + 2</li>
+	</ul>
+	else
+	<ul>
+	<li>DI =3D DI - 2</li>
+	</ul>
+</li>
+</ul>
+</font>
+			<a name=3D"SUB">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+SUB
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>
+	REG, memory<br>
+	memory, REG<br>
+	REG, REG<br>
+	memory, immediate<br>
+	REG, immediate
+	</nobr>
+</font>
+</td>
+<td>
+
+Subtract.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+operand1 =3D operand1 - operand2
+</font>
+			<a name=3D"TEST">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+TEST
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>
+	REG, memory<br>
+	memory, REG<br>
+	REG, REG<br>
+	memory, immediate<br>
+	REG, immediate
+	</nobr>
+</font>
+</td>
+<td>
+
+Logical AND between all bits of two operands for flags only.
+These flags are effected: <b>ZF, SF, PF.</b>
+Result is not stored anywhere.<br><br>
+These rules apply:<br><br>
+<font face=3D"Fixedsys">
+1 AND 1 =3D 1<br>
+1 AND 0 =3D 0<br>
+0 AND 1 =3D 0<br>
+0 AND 0 =3D 0<br>
+</font>
+			<a name=3D"XCHG">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+XCHG
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>
+	REG, memory<br>
+	memory, REG<br>
+	REG, REG
+	</nobr>
+</font>
+</td>
+<td>
+
+Exchange values of two operands.
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+operand1 &lt; - &gt; operand2
+</font>
+			<a name=3D"XLATB">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+XLATB
+</font>
+</td>
+<td>No operands</td>
+<td>
+
+Translate byte from table.<br>
+Set value of AL register to memory byte at <nobr>DS:[BX + unsigned AL]</nob=
+r>
+<br><br>Algorithm:<br><br>
+<font face=3D"Fixedsys">
+DS:[BX + unsigned AL] =3D AL
+</font>
+			<a name=3D"XOR">&#xa0;</a>
+</td>
+</tr>
+
+
+
+
+
+
+
+<tr>
+<td>
+<font face=3D"Fixedsys">
+XOR
+</font>
+</td>
+<td>
+<font face=3D"Fixedsys">
+	<nobr>
+	REG, memory<br>
+	memory, REG<br>
+	REG, REG<br>
+	memory, immediate<br>
+	REG, immediate
+	</nobr>
+</font>
+</td>
+<td>
+
+Logical XOR (Exclusive OR) between all bits of two operands.
+Result is stored in first operand.<br><br>
+These rules apply:<br><br>
+<font face=3D"Fixedsys">
+1 XOR 1 =3D 0<br>
+1 XOR 0 =3D 1<br>
+0 XOR 1 =3D 1<br>
+0 XOR 0 =3D 0<br>
+</font>
+</td>
+</tr>
+
+
+
+
+
+</tbody></table>
+
+<br><br>
+
+<hr>
+
+<br><br><br>
+<center>
+<font size=3D"2">
+Copyright &#xA9; 2002 Alexander Popov Emulation Soft.<br>
+All rights reserved.<br>
+<a href=3D"http://www.geocities.com/emu8086/"><b>http://www.geocities.com/e=
+mu8086/</b></a>
+</font>
+</center>
+
+</font>
+
+
+<br>
+
+
+
+
+
+
+
+</body></html>
+------=_Part_B0BD4A35_0CD7A533.170F240B672--
