@@ -73,4 +73,5 @@
 ## 联络方式
 
 邮箱：lib_scau@163.com
-Telegram Channel: t.me/lib_scau
+
+Telegram Channel: https://t.me/lib_scau
